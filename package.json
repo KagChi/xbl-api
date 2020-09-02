@@ -1,6 +1,6 @@
 {
   "name": "xysebl-api",
-  "version": "0.0.4",
+  "version": "1.0.2",
   "description": "an xysebotlist api wrapper",
   "main": "index.js",
   "scripts": {
