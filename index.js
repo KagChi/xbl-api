@@ -1,9 +1,11 @@
-const axios = require("axios");
+const request = require("node-superfetch");
+const { author, version } = require("./package.json");
 async function botData(idBot) {
 if (!idBot) throw Error('Enter Bot Id');
-   const data = await axios.get('https://xysebotlist.ga/api/by-id?q=' + idBot).then(res => res)
+   const { body: data } = await request.get('https://xysebotlist.ga/api/by-id?q=' + idBot)
    return data;
 }
 
 module.exports.botData = botData;
-module.exports.version = "0.0.2";
+module.exports.version = version;
+module.exports.author = author;
