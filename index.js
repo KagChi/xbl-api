@@ -1,13 +1,22 @@
 const request = require("node-superfetch");
 const { author, version } = require("./package.json");
-async function botData(idBot) {
-if (!idBot) throw Error('Enter Bot Id');
-const {body: data} = await request.get("https://xysebotlist.ga/api/by-id?q=" + idBot)
-return data;
+
+/* Functions and Types */
+
+const baseURL = "https://xysebotlist.ga/api";
+const byid = "/by-id?q=";
+
+async function getBot(idBot) {
+ if (typeof idBot !== "string") throw Error("Missing parameter idbot!");
+ if (idBot.length != 18) throw Error("Invalid Bot ID");
+ if (isNaN(idBot)) throw Error("Invalid ID");
+
+ const { body: result } = await request.get(baseURL + byid + parseInt(idBot));
+ return result;
 }
 
-module.exports = {
-   botData,
-   author,
-   version
-}
+/* ********** */
+
+/* Exporting */
+
+module.exports = { author, version, getBot };
