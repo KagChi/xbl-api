@@ -1,5 +1,5 @@
 {
-  "name": "xbl-api",
+  "name": "xysebl-api",
   "version": "0.0.1",
   "description": "an xysebotlist api wrapper",
   "main": "index.js",
