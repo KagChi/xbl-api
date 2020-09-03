@@ -11,7 +11,7 @@ async function getBot(idBot) {
  if (idBot.length != 18) throw Error("Invalid Bot ID");
  if (isNaN(idBot)) throw Error("Invalid ID");
 
- const { body: result } = await request.get(baseURL + byid + idBot).then(res => res.data);
+ const result = await request.get(baseURL + byid + idBot).then(res => res.data);
  if (result.status == "404") throw error("Bot didn't found in database");
  return result;
 }
