@@ -14,9 +14,6 @@
   "author": "KagChi#2628",
   "license": "GNU",
   "dependencies": {
-    "node-superfetch": "^0.1.10",
     "axios": "^0.19.2",
-    "@aero/centra" : "1.0.4",
-    "superagent" : "5.3.1"
   }
 }
