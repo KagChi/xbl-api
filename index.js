@@ -1,4 +1,4 @@
-const request = require("node-superfetch");
+const request = require("axios");
 const { author, version } = require("./package.json");
 
 /* Functions and Types */
@@ -11,8 +11,8 @@ async function getBot(idBot) {
  if (idBot.length != 18) throw Error("Invalid Bot ID");
  if (isNaN(idBot)) throw Error("Invalid ID");
 
- const { body: result } = await request.get(baseURL + byid + parseInt(idBot));
- //if (result.statusText == "Not Found") throw error("Bot didn't found in database");
+ const { body: result } = await request.get(baseURL + byid + parseInt(idBot)).then(res => res.data);
+ if (result.status == "404") throw error("Bot didn't found in database");
  return result;
 }
 
